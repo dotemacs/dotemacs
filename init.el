@@ -164,9 +164,11 @@
   :init (ido-mode t)
   :config (setq ido-enable-flex-matching t))
 
-;; use woman instead of man
-(setq woman-use-own-frame nil)
-(defalias 'man 'woman)
+(use-package woman
+  :commands (woman man)
+  :config
+  (defalias 'man 'woman)
+  (setq woman-use-own-frame nil))
 
 (defun tmpbuf (buf)
     "open a buffer,
