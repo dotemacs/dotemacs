@@ -60,7 +60,7 @@
 (use-package cider
   :ensure t
   :pin melpa-stable
-  :defer t
+  :commands (cider jack-in cider-jack-in cider-connect)
   :bind ("C-x p" . get-project-file)
   :init
   (defun get-project-file ()
@@ -85,7 +85,8 @@
   (setq cider-repl-wrap-history t
 	cider-repl-history-size 1000
 	cider-repl-history-file "~/.cider-repl-history"
-	cider-repl-use-clojure-font-lock t))
+	cider-repl-use-clojure-font-lock t
+	cider-repl-display-help-banner nil))
 
 (use-package paredit
   :ensure t
