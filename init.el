@@ -159,6 +159,9 @@
 (define-key query-replace-map [return] 'act)
 (define-key query-replace-map [?\C-m] 'act)
 
+(ido-mode t)
+(setq ido-enable-flex-matching t)
+
 ;; use woman instead of man
 (setq woman-use-own-frame nil)
 (defalias 'man 'woman)
