@@ -1,0 +1,5 @@
+* Emacs config
+
+After putting it off for a while, decided to get [[https://twitter.com/dotemacs/status/777823343038828544][future proof]] publicly
+
+
