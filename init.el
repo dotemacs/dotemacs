@@ -170,6 +170,16 @@
   (defalias 'man 'woman)
   (setq woman-use-own-frame nil))
 
+(use-package eshell
+  :bind ("M-3" . goto-eshell)
+  :init
+    (defun goto-eshell()
+    "switch to eshell buffer v2"
+    (interactive)
+    (if (get-buffer "*eshell*")
+        (switch-to-buffer-other-window "*eshell*")
+      (eshell))))
+
 (defun tmpbuf (buf)
     "open a buffer,
   if it doesn't exist, open a new one"
