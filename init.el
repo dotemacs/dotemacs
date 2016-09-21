@@ -180,6 +180,11 @@
         (switch-to-buffer-other-window "*eshell*")
       (eshell))))
 
+(use-package desktop
+  :config
+  (setq desktop-dirname "~/.emacs.d")
+  (desktop-save-mode t))
+
 (defun tmpbuf (buf)
     "open a buffer,
   if it doesn't exist, open a new one"
