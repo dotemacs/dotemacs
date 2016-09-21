@@ -192,5 +192,6 @@
 
 ;; prevent `custom-set-variables' & `custom-set-faces' from poluting
 ;; this file.
-(setq custom-file "/dev/null")
+;; taken from here: http://irreal.org/blog/?p=3765#comment-1896551541
+(setq custom-file (make-temp-file "emacs-custom"))
 (load custom-file 'noerror)
