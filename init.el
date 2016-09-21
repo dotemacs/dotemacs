@@ -88,6 +88,12 @@
 	cider-repl-use-clojure-font-lock t
 	cider-repl-display-help-banner nil))
 
+(use-package git-gutter
+  :ensure t
+  :diminish (git-gutter-mode . " Г")
+  :config
+  (global-git-gutter-mode +1))
+
 (use-package paredit
   :ensure t
   :pin melpa-stable
