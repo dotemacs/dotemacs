@@ -114,6 +114,9 @@
   :ensure t
   :mode "m\\(ark\\)?d\\(own\\)?")
 
+(use-package sort-words
+  :ensure t)
+
 (use-package ag
   :ensure t)
 
