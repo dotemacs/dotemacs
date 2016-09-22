@@ -184,13 +184,29 @@
 
 (use-package eshell
   :bind ("M-3" . goto-eshell)
-  :init
-    (defun goto-eshell()
+  :config
+  (defun goto-eshell()
     "switch to eshell buffer v2"
     (interactive)
     (if (get-buffer "*eshell*")
         (switch-to-buffer-other-window "*eshell*")
-      (eshell))))
+      (eshell)))
+  :init
+  (add-hook 'eshell-mode-hook
+	    (lambda ()
+              "Add screen clear function & keybinding (C-l) for eshell.
+               For some reason adding this function to definition
+               to the `:config' and key binding to `:bind' would
+               error."
+              (defun eshell/clear()
+                "original taken from: 04Dec2001 - sailor,
+                 added eshell-send-input based on comments by
+                 parv at linuxquestions forum"
+                (interactive)
+                (let ((inhibit-read-only t))
+                  (erase-buffer)
+                  (eshell-send-input)))
+	      (define-key eshell-mode-map (kbd "C-l") 'eshell/clear))))
 
 (use-package desktop
   :config
