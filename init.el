@@ -243,6 +243,8 @@
 (add-hook 'before-save-hook
 	  'delete-trailing-whitespace)
 
+(global-set-key (kbd "M-g") 'goto-line)
+
 ;; Save files when the focus is lost.
 ;; Taken from Bozhidar Batsov:
 ;; http://emacsredux.com/blog/2014/03/22/a-peek-at-emacs-24-dot-4-focus-hooks/
