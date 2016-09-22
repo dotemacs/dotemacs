@@ -243,6 +243,12 @@
 (add-hook 'before-save-hook
 	  'delete-trailing-whitespace)
 
+;; Save files when the focus is lost.
+;; Taken from Bozhidar Batsov:
+;; http://emacsredux.com/blog/2014/03/22/a-peek-at-emacs-24-dot-4-focus-hooks/
+
+(add-hook 'focus-out-hook (lambda () (save-some-buffers t)))
+
 ;; prevent `custom-set-variables' & `custom-set-faces' from poluting
 ;; this file.
 ;; taken from here: http://irreal.org/blog/?p=3765#comment-1896551541
