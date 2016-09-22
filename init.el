@@ -233,6 +233,9 @@
       (indent-region begin end))
     (message "Ah, much better!")))
 
+(use-package ibuffer
+  :bind ("C-x C-b" . ibuffer-other-window))
+
 (defun tmpbuf (buf)
     "open a buffer,
   if it doesn't exist, open a new one"
