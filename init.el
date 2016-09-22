@@ -129,6 +129,9 @@
 (use-package gist
   :ensure t)
 
+(use-package dired+
+  :ensure t)
+
 (defun apply-to-mode (value modes)
   (dolist (mode modes)
     (funcall mode value)))
