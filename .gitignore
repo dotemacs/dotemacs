@@ -6,3 +6,5 @@ var/**
 recentf
 ido.last
 .emacs.desktop*
+url/**
+/bookmarks
