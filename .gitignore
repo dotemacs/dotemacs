@@ -8,3 +8,5 @@ ido.last
 .emacs.desktop*
 url/**
 /bookmarks
+/games
+/request
