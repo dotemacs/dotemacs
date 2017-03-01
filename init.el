@@ -139,7 +139,7 @@
   :ensure t
   :commands (markdown-mode gfm-mode)
   :mode (("README\\.md\\'" . gfm-mode)
-	  ("m\\(ark\\)?d\\(own\\)?" . markdown-mode))
+	  (".m\\(ark\\)?d\\(own\\)?\\'" . markdown-mode))
   :init (setq markdown-command "multimarkdown"))
 
 (use-package sort-words
