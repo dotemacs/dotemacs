@@ -162,6 +162,7 @@
 
 (use-package sql-interactive-mode
   ;; :commands sql-interactive-mode
+  :defer t
   :init
   ;; PostgreSQL databases with underscores in their names trip up the
   ;; prompt specified in sql.el. I work around this with the
