@@ -45,6 +45,10 @@
   :ensure t
   :diminish (dedicated-mode . " །"))
 
+(use-package subword
+  :init (global-subword-mode)
+  :diminish subword-mode)
+
 (use-package clojure-mode
   :ensure t
   :defer t
