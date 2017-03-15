@@ -69,6 +69,11 @@
   (add-hook 'clojure-mode-hook '((lambda () (clj-refactor-mode 1))))
   (add-hook 'clojure-mode-hook (cljr-add-keybindings-with-prefix "C-c R")))
 
+(use-package company
+  :ensure t
+  :defer t
+  :config (global-company-mode))
+
 (use-package cider
   :ensure t
   :pin melpa-stable
@@ -100,7 +105,10 @@
 	cider-repl-history-size 1000
 	cider-repl-history-file "~/.cider-repl-history"
 	cider-repl-use-clojure-font-lock t
-	cider-repl-display-help-banner nil))
+	cider-repl-display-help-banner nil
+	cider-repl-use-pretty-printing t)
+  (add-hook 'cider-repl-mode-hook #'company-mode)
+  (add-hook 'cider-mode-hook #'company-mode))
 
 (use-package html-to-hiccup
   :ensure t)
