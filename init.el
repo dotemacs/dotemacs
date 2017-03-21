@@ -61,6 +61,7 @@
   (use-package clojars
     :ensure t)
   (use-package clj-refactor
+    :pin melpa-stable
     :ensure t)
 
   (add-hook 'clojure-mode-hook 'yas-minor-mode)
