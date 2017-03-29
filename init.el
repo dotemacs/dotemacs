@@ -56,19 +56,24 @@
 
   (use-package fold-this
     :ensure t)
+
   (use-package clojure-snippets
-    :ensure t)
+    :ensure t
+    :config
+    (add-hook 'clojure-mode-hook 'yas-minor-mode)
+    (setq yas-also-auto-indent-first-line t))
+
   (use-package clojars
     :ensure t)
+
   (use-package clj-refactor
     :pin melpa-stable
-    :ensure t)
-
-  (add-hook 'clojure-mode-hook 'yas-minor-mode)
-  (setq yas-also-auto-indent-first-line t)
-
-  (add-hook 'clojure-mode-hook '((lambda () (clj-refactor-mode 1))))
-  (add-hook 'clojure-mode-hook (cljr-add-keybindings-with-prefix "C-c R")))
+    :ensure t
+    :config
+    (setq cljr-favor-prefix-notation nil)
+    (add-hook 'clojure-mode-hook
+	      (lambda () (clj-refactor-mode 1))
+	      '(cljr-add-keybindings-with-prefix "C-c R"))))
 
 (use-package company
   :ensure t
