@@ -112,7 +112,8 @@
 	cider-repl-history-file "~/.cider-repl-history"
 	cider-repl-use-clojure-font-lock t
 	cider-repl-display-help-banner nil
-	cider-repl-use-pretty-printing t)
+	cider-repl-use-pretty-printing t
+	cider-prompt-save-file-on-load 'always-save)
   (add-hook 'cider-repl-mode-hook #'company-mode)
   (add-hook 'cider-mode-hook #'company-mode))
 
