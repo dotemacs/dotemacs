@@ -107,7 +107,8 @@
   :config
   (defalias 'jack-in 'cider-jack-in)
   (defalias 'enlighten 'cider-enlighten-mode)
-  (setq cider-repl-wrap-history t
+  (setq nrepl-log-messages t
+	cider-repl-wrap-history t
 	cider-repl-history-size 1000
 	cider-repl-history-file "~/.cider-repl-history"
 	cider-repl-use-clojure-font-lock t
