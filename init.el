@@ -174,6 +174,10 @@
 	  (".m\\(ark\\)?d\\(own\\)?\\'" . markdown-mode))
   :init (setq markdown-command "multimarkdown"))
 
+(use-package yaml-mode
+  :ensure t
+  :defer t)
+
 (use-package sort-words
   :ensure t)
 
