@@ -461,14 +461,13 @@ source block"
 
 (global-set-key (kbd "C-%") 'forward-or-backward-sexp)
 
-(defun dired-dir-in-eshell (current-dired-dir)
-  "Open the current dired directory in eshell."
-  (interactive "D")
-  (if (string= "dired-mode" major-mode)
-      (progn
-	(if (get-buffer "*eshell*")
-	    (switch-to-buffer-other-window "*eshell*")
-	  (eshell))
-	(insert (format "%s" current-dired-dir))
-	(eshell-send-input))
+(defun dired-dir-in-eshell ()
+  "Open the current directory in Eshell"
+  (interactive)
+  (if (string= major-mode "dired-mode")
+      (if (get-buffer "*eshell*")
+	  (progn (switch-to-buffer-other-window "*eshell*")
+		 (insert (format "%s" dired-directory))
+		 (eshell-send-input))
+	(eshell))
     (message "This function in only intended to be used in dired-mode")))
