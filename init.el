@@ -141,7 +141,29 @@
 
 (use-package magit
   :ensure t
-  :bind ("C-x g" . magit-status))
+  :bind ("C-x g" . magit-status)
+  :config
+  (defun parse-url (url)
+  "convert a git remote location as a HTTP URL"
+  (if (string-match "^http" url)
+      url
+    (replace-regexp-in-string "\\(.*\\)@\\(.*\\):\\(.*\\)\\(\\.git?\\)"
+                              "https://\\2/\\3"
+                              url)))
+  (defun magit-open-repo ()
+    "open remote repo URL"
+    (interactive)
+    (let ((url (magit-get "remote" "origin" "url")))
+      (progn
+	(browse-url (parse-url url))
+	(message "opening repo %s" url))))
+
+  (add-hook 'magit-mode-hook
+	    (lambda ()
+	      (local-set-key (kbd "o") 'magit-open-repo)))
+
+  (defalias 'branch-list 'magit-show-refs-popup)
+  (defalias 'blame 'magit-blame))
 
 (use-package git-gutter
   :ensure t
