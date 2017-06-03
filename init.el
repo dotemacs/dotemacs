@@ -35,6 +35,18 @@
   "Return t if the current system is OSX/macOS"
   (eq system-type 'darwin))
 
+(when (mac-p)
+  (progn
+    (condition-case nil
+	(progn
+	  (set-default-font "Fira Code")
+	  (set-face-attribute 'default nil :height 180))
+      (error
+       (progn
+	 (set-default-font "Monaco")
+	 (set-face-attribute 'default nil :height 160))))
+    (mac-auto-operator-composition-mode)))
+
 (use-package exec-path-from-shell
   :ensure t
   :if (mac-p)
