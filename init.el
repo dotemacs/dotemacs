@@ -490,3 +490,25 @@ source block"
 	(message (concat "Made " buffer-file-name " executable"))))))
 
 (add-hook 'after-save-hook 'hlu-make-script-executable)
+
+(defun open-directory-in-iterm2 (directory)
+  "Open `directory' in iTerm2"
+  (interactive "D")
+  (do-applescript (concat
+    "tell application \"iTerm\"
+      activate
+
+      set iTerm2Window to current window
+
+      if iTerm2Window is equal to missing value then
+        set iTerm2Window to (create window with default profile)
+      else
+        tell iTerm2Window
+          create tab with default profile
+        end tell
+      end if
+
+      tell current session of iTerm2Window
+        write text \"cd " directory "\"
+      end tell
+    end tell")))
