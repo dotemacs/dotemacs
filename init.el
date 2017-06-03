@@ -471,3 +471,22 @@ source block"
 		 (eshell-send-input))
 	(eshell))
     (message "This function in only intended to be used in dired-mode")))
+(defun hlu-make-script-executable ()
+  "If file starts with a shebang, make `buffer-file-name' executable
+
+   Since it doesn't rely on ##chmod##, it also works for remote
+   files, i.e. those accessed by TrampMode.
+
+   taken from:
+   http://www.emacswiki.org/emacs-en/MakingScriptsExecutableOnSave"
+  (save-excursion
+    (save-restriction
+      (widen)
+      (goto-char (point-min))
+      (when (and (looking-at "^#!")
+		 (not (file-executable-p buffer-file-name)))
+	(set-file-modes buffer-file-name
+			(logior (file-modes buffer-file-name) #o100))
+	(message (concat "Made " buffer-file-name " executable"))))))
+
+(add-hook 'after-save-hook 'hlu-make-script-executable)
