@@ -290,6 +290,12 @@ Taken from: https://www.emacswiki.org/emacs/SqlMode"
 (use-package projectile
   :ensure t)
 
+(use-package restclient
+  :ensure t
+  :defer t
+  :config
+  (add-to-list 'auto-mode-alist '("\\.http\\'" . restclient-mode)))
+
 (defun apply-to-mode (value modes)
   (dolist (mode modes)
     (funcall mode value)))
