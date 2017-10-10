@@ -570,3 +570,12 @@ source block"
     (goto-char beg)
     (while (re-search-forward ansi-escape-re end t)
       (replace-match ""))))
+
+(defun dos2unix ()
+  "Just when you think that nobody in the world uses DOS based
+operating systems...
+
+Taken from: https://www.emacswiki.org/emacs/DosToUnix Had in the
+config before but then it 'disappeared'."
+  (interactive)
+  (set-buffer-file-coding-system 'unix 't))
