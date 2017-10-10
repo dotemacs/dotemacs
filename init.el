@@ -37,7 +37,9 @@
   "Return t if the current system is OSX/macOS"
   (eq system-type 'darwin))
 
-(when (mac-p)
+(defconst *is-mac* (eq system-type 'darwin))
+
+(when *is-mac*
   (progn
     (condition-case nil
 	(progn
@@ -51,7 +53,7 @@
 
 (use-package exec-path-from-shell
   :ensure t
-  :if (mac-p)
+  :when *is-mac*
   :init
   (exec-path-from-shell-initialize))
 
