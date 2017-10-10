@@ -515,6 +515,15 @@ source block"
 		 (eshell-send-input))
 	(eshell))
     (message "This function in only intended to be used in dired-mode")))
+
+(defun pcre-regexp-from-list-of-words (words)
+  "insert a pcre regexp to match a list of words
+taken from http://emacsfodder.github.io/blog/easy-regexp-generation-with-emacs/"
+  (interactive "sList of words for regexp: ")
+  (insert
+   (pcre-to-elisp
+    (regexp-opt (split-string words)))))
+
 (defun hlu-make-script-executable ()
   "If file starts with a shebang, make `buffer-file-name' executable
 
