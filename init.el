@@ -1,3 +1,5 @@
+(setq gc-cons-threshold (* 100 1000000)) ;; 100MB
+
 (setq inhibit-splash-screen t)
 (set-face-attribute 'default nil :height 160)
 (set-background-color "#2b2b2b")
