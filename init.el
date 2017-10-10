@@ -556,6 +556,7 @@ source block"
         write text \"cd " directory "\"
       end tell
     end tell")))
+
 (defvar ansi-escape-re
   (rx (or ?\233 (and ?\e ?\[))
       (zero-or-more (char (?0 . ?\?)))
