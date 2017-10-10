@@ -579,3 +579,10 @@ Taken from: https://www.emacswiki.org/emacs/DosToUnix Had in the
 config before but then it 'disappeared'."
   (interactive)
   (set-buffer-file-coding-system 'unix 't))
+
+;; taken from
+;; http://emacsredux.com/blog/2013/04/07/display-visited-files-path-in-the-frame-title/
+(setq frame-title-format
+      '((:eval (if (buffer-file-name)
+                   (abbreviate-file-name (buffer-file-name))
+                 "%b"))))
