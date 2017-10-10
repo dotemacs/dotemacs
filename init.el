@@ -125,6 +125,7 @@
   (add-hook 'cider-mode-hook #'company-mode))
 
 (use-package html-to-hiccup
+  :after clojure-mode
   :ensure t)
 
 (use-package undo-tree
