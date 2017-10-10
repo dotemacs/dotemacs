@@ -554,3 +554,16 @@ source block"
         write text \"cd " directory "\"
       end tell
     end tell")))
+(defvar ansi-escape-re
+  (rx (or ?\233 (and ?\e ?\[))
+      (zero-or-more (char (?0 . ?\?)))
+      (zero-or-more (char ?\s ?- ?\/))
+      (char (?@ . ?~))))
+
+(defun strip-ansi-escapes (beg end)
+  "taken from: https://emacs.stackexchange.com/a/18884"
+  (interactive "r")
+  (save-excursion
+    (goto-char beg)
+    (while (re-search-forward ansi-escape-re end t)
+      (replace-match ""))))
