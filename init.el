@@ -70,8 +70,6 @@
   :defer t
   :init
 
-  (use-package fold-this
-    :ensure t)
 
   (use-package clojure-snippets
     :ensure t
