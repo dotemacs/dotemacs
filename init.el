@@ -71,7 +71,8 @@
   :init
 
 
-  (use-package clojure-snippets
+(use-package clojure-snippets
+    :after clojure-mode
     :ensure t
     :config
     (add-hook 'clojure-mode-hook 'yas-minor-mode)
