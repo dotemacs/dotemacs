@@ -284,7 +284,8 @@ Taken from: https://www.emacswiki.org/emacs/SqlMode"
 (use-package json-mode
   :ensure t
   :config
-  (defalias 'json-pretty-print 'json-mode-beautify))
+  (defalias 'json-pretty-print 'json-mode-beautify)
+  (add-to-list 'auto-mode-alist '("\\.tfstate\\'" . json-mode)))
 
 (use-package projectile
   :ensure t)
