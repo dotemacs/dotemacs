@@ -81,14 +81,14 @@
   (use-package clojars
     :ensure t)
 
-  (use-package clj-refactor
-    :pin melpa-stable
-    :ensure t
-    :config
-    (setq cljr-favor-prefix-notation nil)
-    (add-hook 'clojure-mode-hook
-	      (lambda () (clj-refactor-mode 1))
-	      '(cljr-add-keybindings-with-prefix "C-c R"))))
+(use-package clj-refactor
+  :after clojure-mode
+  :pin melpa-stable
+  :ensure t
+  :config
+  (setq cljr-favor-prefix-notation nil)
+  (cljr-add-keybindings-with-prefix "C-c C-m")
+  (add-hook-to-clojure-and-cider #'clj-refactor-mode))
 
 (use-package company
   :ensure t
