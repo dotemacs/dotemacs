@@ -421,6 +421,17 @@ source block"
   :ensure t
   :defer t)
 
+(use-package web-mode
+  :ensure t
+  :defer t
+  :config
+  (defun my-web-mode-hook ()
+    (setq web-mode-markup-indent-offset 2)
+    (setq web-mode-css-indent-offset 2)
+    (setq web-mode-code-indent-offset 2))
+
+  (add-hook 'web-mode-hook 'my-web-mode-hook))
+
 (defun tmpbuf (buf)
     "open a buffer,
   if it doesn't exist, open a new one"
