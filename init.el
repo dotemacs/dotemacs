@@ -447,6 +447,8 @@ source block"
 	  'delete-trailing-whitespace)
 
 (global-set-key (kbd "M-g") 'goto-line)
+;; this steals `query-replace-string' keybinding
+(global-set-key (kbd "M-%") 'replace-string)
 
 ;; Save files when the focus is lost.
 ;; Taken from Bozhidar Batsov:
