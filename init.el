@@ -17,10 +17,10 @@
       '((foreground-color . "gray97")
         (background-color . "#2b2b2b")))
 
-  (defun add-hooks-to-mode (mode hooks)
-    "add a bunch of `hooks' to a `mode', in one go"
-      (dolist (hook hooks)
-	(add-hook hook mode)))
+(defun add-hooks-to-mode (mode hooks)
+  "add a bunch of `hooks' to a `mode', in one go"
+  (dolist (hook hooks)
+    (add-hook hook mode)))
 
 (require 'package)
 (setq package-enable-at-startup nil)
