@@ -110,15 +110,6 @@
 	(find-file-other-window (concat (magit-toplevel) "/project.clj"))
       (message "install magit for this to work")))
 
-  (defun get-ns ()
-    "copy the name of the namespace of the Clojure file"
-    (interactive)
-    (save-excursion
-      (goto-char (point-min))
-      (forward-word)
-      (forward-char)
-      (kill-ring-save (point) (line-end-position))))
-
   :config
   (defalias 'jack-in 'cider-jack-in)
   (defalias 'enlighten 'cider-enlighten-mode)
