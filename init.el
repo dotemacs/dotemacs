@@ -113,6 +113,8 @@
   :config
   (defalias 'jack-in 'cider-jack-in)
   (defalias 'enlighten 'cider-enlighten-mode)
+  (defalias 'edn-pretty-print-buffer 'cider-format-edn-buffer)
+  (defalias 'edn-pretty-print-region 'cider-format-edn-region)
   (setq nrepl-log-messages t
 	cider-repl-wrap-history t
 	cider-repl-history-size 1000
