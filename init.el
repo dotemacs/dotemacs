@@ -168,6 +168,11 @@
 (use-package git-timemachine
   :ensure t)
 
+(use-package git-link
+  :ensure t
+  :config
+  (setq git-link-open-in-browser t))
+
 (use-package smartparens
   :ensure t
   :diminish (smartparens-mode . " ⸦⸧")
