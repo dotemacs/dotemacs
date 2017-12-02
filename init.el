@@ -160,6 +160,10 @@
 (use-package git-timemachine
   :ensure t)
 
+(use-package git-commit
+  :init (global-git-commit-mode)
+  :config (setq git-commit-summary-max-length 50))
+
 (use-package smartparens
   :ensure t
   :diminish (smartparens-mode . " ⸦⸧")
