@@ -142,6 +142,24 @@
   :config
   (defalias 'branch-list 'magit-show-refs-popup)
   (defalias 'blame 'magit-blame))
+  (defalias 'blame 'magit-blame)
+
+  (defun semaphore-open-branch ()
+    "Open branch in Semaphore CI"
+    (interactive)
+    (let* ((branch (magit-get-current-branch))
+	   (group-repo (replace-regexp-in-string "mobytronics" "mobytrader"
+						 (thread-first (magit-get "remote" "origin" "url")
+						   (split-string ":")
+						   last
+						   first
+						   (split-string "\\.")
+						   first))))
+      (browse-url (format "https://semaphoreci.com/%s/branches/%s" group-repo branch))))
+
+  (add-hook 'magit-mode-hook
+  	    (lambda ()
+  	      (local-set-key (kbd "j") 'semaphore-open-branch))))
 
 (use-package git-link
   :after magit
