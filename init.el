@@ -444,6 +444,12 @@ source block"
 
   (add-hook 'web-mode-hook 'my-web-mode-hook))
 
+(use-package conf-mode
+  :defer t
+  :init
+  (add-to-list 'auto-mode-alist '("/\\.aws/config\\'" . conf-mode))
+  (add-to-list 'auto-mode-alist '("/\\.aws/credentials\\'" . conf-mode)))
+
 (defun tmpbuf (buf)
     "open a buffer,
   if it doesn't exist, open a new one"
