@@ -51,6 +51,8 @@
 	 (set-face-attribute 'default nil :height 160))))
     (mac-auto-operator-composition-mode)))
 
+(put 'downcase-region 'disabled nil)
+
 (use-package exec-path-from-shell
   :ensure t
   :when *is-mac*
