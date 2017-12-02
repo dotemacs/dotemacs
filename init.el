@@ -274,6 +274,8 @@ Taken from: https://www.emacswiki.org/emacs/SqlMode"
 
 (use-package json-mode
   :ensure t
+  :init
+  (setq js-indent-level 2)
   :config
   (defalias 'json-pretty-print 'json-mode-beautify)
   (add-to-list 'auto-mode-alist '("\\.tfstate\\'" . json-mode)))
